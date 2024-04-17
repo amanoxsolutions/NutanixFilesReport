@@ -14,3 +14,7 @@ The following imports are requiered in Python to run this code:
 
 For accessing the Prism Central, a local user is needed with Viewer Role. This user will do all the API Calls to 
 the Prism Central.  
+
+### What does it?
+
+
