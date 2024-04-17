@@ -1,0 +1,4 @@
+{
+  "entity_type": "file_server_share",
+  "group_member_attributes": [{"attribute": "share_used_bytes"}, {"attribute": "name"}]
+}

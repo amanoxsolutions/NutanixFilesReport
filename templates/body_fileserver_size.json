@@ -1,0 +1,4 @@
+{
+    "entity_type":"file_server",
+	"group_member_attributes":[{"attribute":"name"},{"attribute":"fileserver_size_bytes"},{"attribute":"total_space_used_bytes"}]
+}
