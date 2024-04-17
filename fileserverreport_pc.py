@@ -44,21 +44,21 @@ def main():
             # Extract name and entity_id
             fs_name = group['entity_results'][0]['data'][0]['values'][0]['values'][0]
             fileserver_ID = group['entity_results'][0]['entity_id']
-            url_fileserver = "https://nxp12.lab.amanox.ch:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
-            sizes = get_fileserver_size(url_fileserver)
+            sizes = get_fileserver_size(fileserver_ID)
             free_space = sizes[0] - sizes[1]
             print()
             print(f"{fs_name} has a total size of {sizes[0]:.2f} GiB. The used size is {sizes[1]:.2f} GiB and available free space is {free_space:.2f} GiB")
             fs_information_text = f"{fs_name} has a total size of {sizes[0]:.2f} GiB. The used size is {sizes[1]:.2f} GiB and available free space is {free_space:.2f} GiB"
             fileserver_description.append(fs_information_text)
             print()
-            get_file_server_share(url_fileserver, fs_name)
+            get_file_server_share(fileserver_ID, fs_name)
             plot_data()
     else:
         print("Error:", fileserver_data_response.status_code)
 
 # method for API call to get total spaces and used spaces from all FS
-def get_fileserver_size(url_fileserver_size):
+def get_fileserver_size(fileserver_ID):
+    url_fileserver_size = "https://nxp12.lab.amanox.ch:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
     fileserver_size_response = requests.post(url_fileserver_size, json=body_fileserver_size, auth=(username, password))
 
     if fileserver_size_response.status_code == 200:
@@ -70,8 +70,9 @@ def get_fileserver_size(url_fileserver_size):
         print("Error:", fileserver_size_response.status_code)
 
 # method for API call to get total spaces and all Shares
-def get_file_server_share(url_fileserver_share, fs_name):
-    file_server_share_response = requests.post(url_fileserver_share, json=body_file_server_share, auth=(username, password))
+def get_file_server_share(fileserver_ID, fs_name):
+    url_file_server_share = "https://nxp12.lab.amanox.ch:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
+    file_server_share_response = requests.post(url_file_server_share, json=body_file_server_share, auth=(username, password))
 
     if file_server_share_response.status_code == 200:
         data = file_server_share_response.json()
