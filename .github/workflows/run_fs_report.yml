@@ -7,9 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
+    - name: Set up Python 3.9.10
       uses: actions/setup-python@v3
       with:
-        python-version: '3.10'
+        python-version: '3.9.10'
+    - name: Install requests module
+      run: pip install requests
+    - name: Install matplotlib module
+      run: pip install matplotlib
+    - name: Install pdf backend for matplotlib
+      run: pip install matplotlib-backend-pdf
     - name: run File Server report
       run: python fileserverreport_pc.py
