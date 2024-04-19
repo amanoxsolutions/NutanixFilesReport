@@ -1,0 +1,15 @@
+name: Python Package using Conda
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.10'
+    - name: run File Server report
+      run: python fileserverreport_pc.py
