@@ -6,13 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Python 3.9.10
-    - name: Set up Python 3.9.10
-      run: |
-        mkdir -p ~/python-3.9.10
-        curl -L https://github.com/actions/python-versions/releases/download/3.9.10-1788162477/python-3.9.10-linux-20.04-x64.tar.gz | tar xz -C ~/python-3.9.10 --strip-components=1
-        export PATH=$HOME/python-3.9.10/bin:$PATH
-        python --version
     - name: Install requests module
       run: pip install requests
     - name: Install matplotlib module
