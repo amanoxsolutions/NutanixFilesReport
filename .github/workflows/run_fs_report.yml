@@ -10,7 +10,5 @@ jobs:
       run: pip install requests
     - name: Install matplotlib module
       run: pip install matplotlib
-    - name: Install pdf backend for matplotlib
-      run: pip install matplotlib-backend-pdf
     - name: run File Server report
       run: python fileserverreport_pc.py
