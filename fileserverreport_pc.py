@@ -5,8 +5,8 @@ from collections import defaultdict
 import matplotlib.backends.backend_pdf as pdf
 
 # Nutanix User with viewer role
-username = "api_insel_user"
-password = "H9qYQ#}{V#OY1i3m$uCT"
+username = "username"
+password = "password"
 
 # plotting data
 plotting_data = []
