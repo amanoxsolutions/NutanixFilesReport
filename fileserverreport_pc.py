@@ -33,7 +33,7 @@ def bytes_to_gib(bytes_value):
 # main method for API call to get total all FS and IDs
 def main():
     # POST request to get FS informations
-    url_fileserver_data = "https://nxp12.lab.amanox.ch:9440/api/nutanix/v3/groups"
+    url_fileserver_data = "https://prismcentral:9440/api/nutanix/v3/groups"
     fileserver_data_response = requests.post(url_fileserver_data, json=body_fileserver_data, auth=(username, password))
 
     if fileserver_data_response.status_code == 200:
@@ -58,7 +58,7 @@ def main():
 
 # method for API call to get total spaces and used spaces from all FS
 def get_fileserver_size(fileserver_ID):
-    url_fileserver_size = "https://nxp12.lab.amanox.ch:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
+    url_fileserver_size = "https://prismcentral:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
     fileserver_size_response = requests.post(url_fileserver_size, json=body_fileserver_size, auth=(username, password))
 
     if fileserver_size_response.status_code == 200:
@@ -71,7 +71,7 @@ def get_fileserver_size(fileserver_ID):
 
 # method for API call to get total spaces and all Shares
 def get_file_server_share(fileserver_ID, fs_name):
-    url_file_server_share = "https://nxp12.lab.amanox.ch:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
+    url_file_server_share = "https://prismcentral:9440/api/files/nutanix/v3/" + fileserver_ID + "/groups"
     file_server_share_response = requests.post(url_file_server_share, json=body_file_server_share, auth=(username, password))
 
     if file_server_share_response.status_code == 200:
